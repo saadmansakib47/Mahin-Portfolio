@@ -20,7 +20,7 @@ export const heroData: HeroData = {
     linkedin: "linkedin.com/in/mahin-ibn-mahmud",
     address: "Mirpur-10, Dhaka",
   },
-  photoPath: "/photo.jpg",
+  photoPath: "/assets/mahin.png",
 };
 
 export const skills: Skill[] = [

@@ -10,26 +10,22 @@ interface HeroSectionProps {
 export default function HeroSection({ data }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen bg-navy-950 overflow-hidden flex items-center">
-      {/* Background accent blobs */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-10"
         style={{
-          background:
-            "radial-gradient(circle, #14b8a6 0%, transparent 70%)",
+          background: "radial-gradient(circle, #14b8a6 0%, transparent 70%)",
           transform: "translate(30%, -30%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-8"
         style={{
-          background:
-            "radial-gradient(circle, #285f91 0%, transparent 70%)",
+          background: "radial-gradient(circle, #285f91 0%, transparent 70%)",
           transform: "translate(-40%, 40%)",
         }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
-        {/* Left: Text content */}
         <div className="order-2 lg:order-1">
           <p className="text-teal-400 text-sm font-medium tracking-[0.2em] uppercase mb-4">
             Public Health Professional
@@ -57,7 +53,6 @@ export default function HeroSection({ data }: HeroSectionProps) {
             {data.about}
           </p>
 
-          {/* Contact info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <ContactItem
               icon={<Phone size={14} />}
@@ -81,13 +76,11 @@ export default function HeroSection({ data }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Right: Photo */}
         <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
           <PhotoFrame src={data.photoPath} name={data.name} />
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-navy-400">
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-navy-400 to-transparent" />
@@ -126,34 +119,31 @@ function ContactItem({
 
 function PhotoFrame({ src, name }: { src: string; name: string }) {
   return (
-    <div className="relative">
-      {/* Decorative ring */}
+    <div
+      style={{
+        width: "292px",
+        height: "292px",
+        borderRadius: "50%",
+        background: "conic-gradient(from 0deg, #14b8a6, #285f91, #14b8a6)",
+        padding: "3px",
+        flexShrink: 0,
+      }}
+    >
       <div
-        className="absolute inset-0 rounded-full"
         style={{
-          background:
-            "conic-gradient(from 0deg, #14b8a6, #285f91, #14b8a6)",
-          padding: "3px",
+          width: "100%",
+          height: "100%",
           borderRadius: "50%",
-          width: "280px",
-          height: "280px",
-        }}
-      />
-      <div
-        className="relative overflow-hidden bg-navy-800 flex items-center justify-center"
-        style={{
-          width: "280px",
-          height: "280px",
-          borderRadius: "50%",
-          border: "4px solid #0c1f3d",
-          margin: "3px",
+          overflow: "hidden",
+          border: "3px solid #0c1f3d",
+          background: "#0e264b",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
           alt={name}
-          className="w-full h-full object-cover"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.style.display = "none";
